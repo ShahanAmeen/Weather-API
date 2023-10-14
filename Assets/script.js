@@ -38,20 +38,20 @@ function currentWeather(lat,lon){
        
     })
 }
-    function futureWeather(lat,lon){
+    function forecast(lat,lon){
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${ApiKey}&units=imperial`)
         .then(response => response.json())
         .then(data =>{      
         console.log(data)
             var cityname = $("<h2>").text(data.name)
-             var temp = $("<h2>").text("Temp: "+ data.main.temp)
-             var wind = $("<h2>").text("wind: "+ data.wind.speed)
-             var humidity = $("<h2>").text("humidity: "+ data.main.humidity)
+             var temp = $("<h3>").text("Temp: "+ data.main.temp)
+             var wind = $("<h3>").text("wind: "+ data.wind.speed)
+             var humidity = $("<h3>").text("humidity: "+ data.main.humidity)
 
 
 
 
-        $("#today").append(cityname, temp, wind, humidity )
+        $("#forecast").append(cityname, temp, wind, humidity )
             /// work here
      })
 
