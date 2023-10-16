@@ -43,15 +43,26 @@ function currentWeather(lat,lon){
         .then(response => response.json())
         .then(data =>{      
         console.log(data)
-            var cityname = $("<h2>").text(data.name)
-             var temp = $("<h3>").text("Temp: "+ data.main.temp)
-             var wind = $("<h3>").text("wind: "+ data.wind.speed)
-             var humidity = $("<h3>").text("humidity: "+ data.main.humidity)
+
+        for(var i = 4;i<data.list.length; i=i+8){
+            console.log(data.list[i])
+            /// wrapper div for styling
+            var cardDiv = $("<div>").addClass("cardDiv")
+            
+
+            var temp = $("<p>").text("Temp: "+ data.list[i].main.temp)
+            var wind = $("<p>").text("wind: "+ data.list[i].wind.speed)
+            var humidity = $("<p>").text("humidity: "+ data.list[i].main.humidity)
 
 
 
+        $(cardDiv).append(temp, wind, humidity)
+       $("#forecast").append(cardDiv)
 
-        $("#forecast").append(cityname, temp, wind, humidity )
+        }
+
+
+           
             /// work here
      })
 
