@@ -11,7 +11,7 @@ getCoordinate(cityValue)
 })
 
 function getCoordinate(city){
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${ApiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${ApiKey}`)
     .then(response => response.json())
     .then(data =>{      
     console.log(data)
@@ -45,7 +45,9 @@ function currentWeather(lat,lon){
         .then(response => response.json())
         .then(data =>{      
         console.log(data)
+
         $("#forecast").empty()
+
         for(var i = 4;i<data.list.length; i=i+8){
             console.log(data.list[i])
             /// wrapper div for styling
