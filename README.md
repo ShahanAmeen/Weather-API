@@ -9,7 +9,7 @@ This homework assignment displays the weather for any city across the world. It 
 
 
 ## URL
-https://shahanameen.github.io/Weather-API/ https://shahanameen.github.io/Weather-API/
+https://github.com/ShahanAmeen/Weather-API
 ## Author
 Shahan Ameen
 https://github.com/ShahanAmeen 
