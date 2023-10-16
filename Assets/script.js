@@ -26,7 +26,9 @@ function currentWeather(lat,lon){
     .then(response => response.json())
     .then(data =>{      
     console.log(data)
+    $("#today").empty()
         var cityname = $("<h2>").text(data.name)
+        var date = $("<h2>").text(moment.unix(data.dt).format("MMM, DD, YYYY"))
         var temp = $("<h2>").text("Temp: "+ data.main.temp)
         var wind = $("<h2>").text("wind: "+ data.wind.speed)
         var humidity = $("<h2>").text("humidity: "+ data.main.humidity)
@@ -34,7 +36,7 @@ function currentWeather(lat,lon){
 
 
 
-        $("#today").append(cityname, temp, wind, humidity )
+        $("#today").append(cityname, temp, wind, humidity, date )
        
     })
 }
@@ -43,12 +45,13 @@ function currentWeather(lat,lon){
         .then(response => response.json())
         .then(data =>{      
         console.log(data)
-
+        $("#forecast").empty()
         for(var i = 4;i<data.list.length; i=i+8){
             console.log(data.list[i])
             /// wrapper div for styling
             var cardDiv = $("<div>").addClass("cardDiv")
-            
+
+            var date = $("<p>").text(moment.unix(data.list[i].dt).format("MMM, DD, YYYY"))
 
             var temp = $("<p>").text("Temp: "+ data.list[i].main.temp)
             var wind = $("<p>").text("wind: "+ data.list[i].wind.speed)
@@ -56,7 +59,7 @@ function currentWeather(lat,lon){
 
 
 
-        $(cardDiv).append(temp, wind, humidity)
+        $(cardDiv).append(date, temp, wind, humidity)
        $("#forecast").append(cardDiv)
 
         }
