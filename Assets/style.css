@@ -6,3 +6,8 @@
     flex-direction: column;
     margin: 15px;
 }
+
+.banana{
+    height: 25px;
+    width: 25px;
+}

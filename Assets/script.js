@@ -32,11 +32,13 @@ function currentWeather(lat,lon){
         var temp = $("<h2>").text("Temp: "+ data.main.temp)
         var wind = $("<h2>").text("wind: "+ data.wind.speed)
         var humidity = $("<h2>").text("humidity: "+ data.main.humidity)
+//to create icon must creat an img tag and insight code # in url
+//<img src="url" />
+var icon = $("<img>").attr("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
 
 
 
-
-        $("#today").append(cityname, temp, wind, humidity, date )
+        $("#today").append(cityname, icon, temp, wind, humidity, date )
        
     })
 }
@@ -58,10 +60,10 @@ function currentWeather(lat,lon){
             var temp = $("<p>").text("Temp: "+ data.list[i].main.temp)
             var wind = $("<p>").text("wind: "+ data.list[i].wind.speed)
             var humidity = $("<p>").text("humidity: "+ data.list[i].main.humidity)
+            var icon = $("<img>").attr("src", `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png`)
+            icon.attr("class", "banana")
 
-
-
-        $(cardDiv).append(date, temp, wind, humidity)
+        $(cardDiv).append(date, icon, temp, wind, humidity)
        $("#forecast").append(cardDiv)
 
         }
